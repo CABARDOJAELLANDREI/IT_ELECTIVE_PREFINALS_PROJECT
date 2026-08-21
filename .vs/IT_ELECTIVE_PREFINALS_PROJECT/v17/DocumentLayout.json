@@ -1,12 +1,23 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\george\\source\\repos\\IT_ELECTIVE_PREFINALS_PROJECT\\",
+  "WorkspaceRootPath": "C:\\Users\\emzgo\\source\\repos\\IT_ELECTIVE_PREFINALS_PROJECT\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
