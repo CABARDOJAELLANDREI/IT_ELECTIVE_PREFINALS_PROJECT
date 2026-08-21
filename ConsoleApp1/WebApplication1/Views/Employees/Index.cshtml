@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<HelpDeskApp.Models.Employee>
+
 @{
+    ViewData["Title"] = "Employees";
 }
+
+<div class="container mt-4">
+    <h2 class="mb-3">Employees Directory</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Job Title</th>
+                <th>Department</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@(emp.FirstName + " " + emp.LastName)</td>
+                    <td>@emp.Email</td>
+                    <td>@emp.JobTitle</td>
+                    <td>@emp.Department.Name</td>
+                    <td>
+                        <span class="badge @(emp.IsActive ? "bg-success" : "bg-secondary")">
+                            @(emp.IsActive ? "Active" : "Inactive")
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

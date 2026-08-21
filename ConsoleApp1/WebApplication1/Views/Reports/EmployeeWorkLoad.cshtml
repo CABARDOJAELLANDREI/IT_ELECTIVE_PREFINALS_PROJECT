@@ -1,5 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<HelpDeskApp.ViewModels.EmployeeWorkloadViewModel>
+
 @{
+    ViewData["Title"] = "Employee Workload";
 }
+
+<div class="container mt-4">
+    <h2>Active Employee Workload</h2>
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Unresolved Tickets</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Model)
+            {
+                <tr>
+                    <td>@row.EmployeeName</td>
+                    <td>@row.DepartmentName</td>
+                    <td>
+                        <span class="badge @(row.UnresolvedTicketCount > 0 ? "bg-warning text-dark" : "bg-light text-dark")">
+                            @row.UnresolvedTicketCount
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
