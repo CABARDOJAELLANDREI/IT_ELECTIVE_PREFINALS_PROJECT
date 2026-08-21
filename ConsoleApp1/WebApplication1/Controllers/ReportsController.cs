@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using HelpDeskApp.Data;
 using HelpDeskApp.ViewModels;
 
-namespace HelpDeskApp.Controllers;
+namespace WebApplication1.Controllers;
+using WebApplication1.Data;
+using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 public partial class ReportsController : Controller
 {

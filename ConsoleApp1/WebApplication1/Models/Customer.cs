@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 
-namespace HelpDeskApp.Models;
+namespace WebApplication1.Models;
 
 [Table("Customers")]
 public class Customer

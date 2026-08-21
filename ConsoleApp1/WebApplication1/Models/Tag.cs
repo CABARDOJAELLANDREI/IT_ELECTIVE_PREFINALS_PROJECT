@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HelpDeskApp.Models;
+namespace WebApplication1.Models;
 
 [Table("Tags")]
 public class Tag

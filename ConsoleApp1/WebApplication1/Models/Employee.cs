@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using WebApplication1.Models;
 
-namespace HelpDeskApp.Models;
+namespace WebApplication1.Models;
 
 [Table("Employees")]
 public class Employee

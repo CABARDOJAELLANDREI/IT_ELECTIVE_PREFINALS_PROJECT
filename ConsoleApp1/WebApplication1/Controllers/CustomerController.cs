@@ -2,7 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using HelpDeskApp.Data;
 
-namespace HelpDeskApp.Controllers;
+namespace WebApplication1.Controllers;
+using WebApplication1.Data;
+using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 public class CustomersController : Controller
 {
