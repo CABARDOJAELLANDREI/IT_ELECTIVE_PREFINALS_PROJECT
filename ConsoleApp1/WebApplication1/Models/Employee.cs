@@ -1,42 +1,39 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebApplication1.Models;
 
-namespace WebApplication1.Models
+namespace HelpDeskApp.Models;
+
+[Table("Employees")]
+public class Employee
 {
-    [Table("Employees")]
-    public class Employee
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; } = string.Empty;
+    [Required]
+    public int DepartmentId { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [StringLength(150)]
-        public string Email { get; set; } = string.Empty;
+    [Required]
+    public string FirstName { get; set; } = string.Empty;
 
-        [Required]
-        public int DepartmentId { get; set; }
+    [Required]
+    public string LastName { get; set; } = string.Empty;
 
-        [ForeignKey("DepartmentId")]
-        public Department? Department { get; set; }
+    [Required]
+    public string Email { get; set; } = string.Empty;
 
-        [Required]
-        public int TeamId { get; set; }
+    [Required]
+    public string JobTitle { get; set; } = string.Empty;
 
-        [ForeignKey("TeamId")]
-        public Team? Team { get; set; }
+    [Required]
+    public string HireDate { get; set; } = string.Empty;
 
-        [Required]
-        public int IsActive { get; set; } = 1;
+    public bool IsActive { get; set; } = true;
 
-        // Navigation properties
-        public ICollection<TeamMember> TeamMembers { get; set; } = new List<TeamMember>();
-        public ICollection<TicketAssignment> TicketAssignments { get; set; } = new List<TicketAssignment>();
-        public ICollection<TicketComment> TicketComments { get; set; } = new List<TicketComment>();
-    }
+    [ForeignKey(nameof(DepartmentId))]
+    public Department Department { get; set; } = null!;
+
+    public ICollection<TeamMember> TeamMembers { get; set; } = new List<TeamMember>();
+    public ICollection<TicketAssignment> TicketAssignments { get; set; } = new List<TicketAssignment>();
+    public ICollection<TicketComment> TicketComments { get; set; } = new List<TicketComment>();
 }

@@ -1,26 +1,22 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebApplication1.Models;
 
-namespace WebApplication1.Models
+namespace HelpDeskApp.Models;
+
+[Table("Departments")]
+public class Department
 {
-    [Table("Departments")]
-    public class Department
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; } = string.Empty;
+    [Required]
+    public string Name { get; set; } = string.Empty;
 
-        public string? Description { get; set; }
+    public string? Description { get; set; }
 
-        [Required]
-        public int IsActive { get; set; } = 1;
+    public bool IsActive { get; set; } = true;
 
-        // Navigation properties
-        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
-        public ICollection<Team> Teams { get; set; } = new List<Team>();
-    }
+    public ICollection<Employee> Employees { get; set; } = new List<Employee>();
+    public ICollection<Team> Teams { get; set; } = new List<Team>();
 }
