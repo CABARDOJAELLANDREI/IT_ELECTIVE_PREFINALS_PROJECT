@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HelpDeskApp.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="container mt-4">
+    <h2>Customer Directory</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Company</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cust in Model)
+            {
+                <tr>
+                    <td>@cust.CompanyName</td>
+                    <td>@cust.ContactName</td>
+                    <td>@cust.Email</td>
+                    <td>@(cust.Phone ?? "N/A")</td>
+                    <td>
+                        <span class="badge @(cust.IsActive ? "bg-success" : "bg-secondary")">
+                            @(cust.IsActive ? "Active" : "Inactive")
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

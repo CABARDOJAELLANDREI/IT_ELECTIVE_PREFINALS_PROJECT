@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HelpDeskApp.Models.Team>
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<div class="container mt-4">
+    <h2>Teams Overview</h2>
+    <div class="row">
+        @foreach (var team in Model)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">@team.Name</h5>
+                        <small>Department: @team.Department.Name</small>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-muted">@team.Description</p>
+                        <h6>Members (@team.TeamMembers.Count):</h6>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var member in team.TeamMembers)
+                            {
+                                <li class="list-group-item px-0 py-1">
+                                    @member.Employee.FirstName @member.Employee.LastName -
+                                    <span class="text-muted">@member.Employee.JobTitle</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
