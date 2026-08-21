@@ -1,0 +1,26 @@
+﻿@model IEnumerable<HelpDeskApp.Models.TicketCategory>
+
+@{
+    ViewData["Title"] = "Category Hierarchy";
+}
+
+<div class="container mt-4">
+    <h2>Category Hierarchy</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Category</th>
+                <th>Parent Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in Model)
+            {
+                <tr>
+                    <td>@cat.Name</td>
+                    <td>@(cat.ParentCategory != null ? cat.ParentCategory.Name : "Root Category")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

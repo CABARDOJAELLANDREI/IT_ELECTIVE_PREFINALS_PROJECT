@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HelpDeskApp.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<div class="container mt-4">
+    <h2>All Tickets</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Customer</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <td>@t.Id</td>
+                    <td>@t.Subject</td>
+                    <td>@t.Customer.CompanyName</td>
+                    <td>@t.Category.Name</td>
+                    <td><span class="badge bg-secondary">@t.Priority.Name</span></td>
+                    <td><span class="badge bg-info text-dark">@t.Status.Name</span></td>
+                    <td>@t.CreatedAt</td>
+                    <td>@(t.DueAt ?? "N/A")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@t.Id" class="btn btn-sm btn-outline-primary">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
