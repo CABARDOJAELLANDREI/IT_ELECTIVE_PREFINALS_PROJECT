@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿namespace HelpDeskApp.Models;
 
-namespace WebApplication1.Models
+public class ErrorViewModel
 {
-    public class ErrorViewModel : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
+    public string? RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }
