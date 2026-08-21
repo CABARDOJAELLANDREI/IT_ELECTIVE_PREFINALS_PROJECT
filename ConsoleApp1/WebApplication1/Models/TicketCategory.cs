@@ -1,12 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Sockets;
 
-namespace WebApplication1.Models
+namespace HelpDeskApp.Models;
+
+[Table("TicketCategories")]
+public class TicketCategory
 {
-    public class TicketCategory : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
+    [Key]
+    public int Id { get; set; }
+
+    public int? ParentCategoryId { get; set; }
+
+    [Required]
+    public string Name { get; set; } = string.Empty;
+
+    public string? Description { get; set; }
+
+    [ForeignKey(nameof(ParentCategoryId))]
+    public TicketCategory? ParentCategory { get; set; }
+
+    public ICollection<TicketCategory> SubCategories { get; set; } = new List<TicketCategory>();
+    public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }
